@@ -16,7 +16,7 @@ int main(){
 			}
 			if(c%2==0) win = 0;
 			else{
-				if((n>>(c-1))%2==0) win = 1;
+			if((n>>(c-1))%2==0) win = 1;
 				else win = 0;
 			}
 		}
