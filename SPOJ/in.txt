@@ -1,4 +1,4 @@
-3
-AAA
-ABCDEFG
-CODECRAFT
+aabbcd
+ababfc
+babadc
+acbafc

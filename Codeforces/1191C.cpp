@@ -10,7 +10,7 @@ int main(){
 	ll i2 = 0,i1 = 0, nk = k,cnt = 0;
 	while(i2<m){
 		i2 = upper_bound(a,a+m,nk)-a;
-		if(i2==i1){ nk += (i2+1-nk)/k+k; }
+		if(i2==i1){ nk += (ll)ceil((double)(a[i2]-nk)/k)*k; cnt--;}
 		else nk+= i2 - i1;
 		i1=i2;
 		cnt++;
