@@ -1,4 +1,9 @@
-aabbcd
-ababfc
-babadc
-acbafc
+4
+
+1 10
+
+100 1
+
+1 1000
+
+1 10000
