@@ -51,7 +51,6 @@ bool intersects(const point &P1, const point &P2, const point &P3, const point &
 /*********************************
 *********GEOMETRY FUNCTIONS*******
 ***********************************/
-
 pair<point,point> v;
 point rect[4];
 bool inside(point p){
@@ -82,4 +81,3 @@ int main(){
 	}
 	return 0;	
 }
-
