@@ -53,8 +53,29 @@ bool intersects(const point &P1, const point &P2, const point &P3, const point &
 /*********************************
 *********GEOMETRY FUNCTIONS*******
 ***********************************/
-
+int n;
+point a[105];
+double res;
 int main(){
-
+	int t; cin >> t;
+	while(t--){
+		cin >> n;
+		res = 0;
+		for(int i =0 ; i < n ;i++){
+			int x,y;
+			cin >> x >> y;
+			a[i] = point(x,y);
+		}
+		sort(a,a+n);
+		point act = a[n-1];
+		for(int i = n-2 ; i >=0 ;i--){
+			if(act.y<a[i].y){
+				res += (a[i]-lineIntersection(a[i],a[i+1],act,point(0,act.y))).mod();
+				act = a[i];
+			}
+		}
+		printf("%.2f\n",res);
+	}
+	
 	return 0;	
 }
