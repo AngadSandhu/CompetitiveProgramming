@@ -20,7 +20,9 @@ point operator -(const point &a,const point &b){return point(a.x-b.x,a.y-b.y);}
 point operator +(const point &a, const point &b) { return point(a.x + b.x, a.y + b.y); }
 point operator *(const point &a, double k) { return point(a.x*k, a.y*k); }
 point operator /(const point &a, double k){ return point(a.x/k,a.y/k); }
-bool operator <(const point &a, const point &b){ if(a.x!=b.x) return a.x<b.x; else return a.y<b.y; }
+bool operator <(const point &a, const point &b){ if(a.x!=b.x) return a.x+eps<b.x; else return a.y+eps<b.y; }
+bool operator ==(const point &a, const point &b){ return (abs(a.x-b.x)<eps && abs(a.y-b.y)<eps); }
+bool operator !=(const point &a, const point &b){ return !(a==b); }
 double dot(const vector &a, const vector &b){ return a.x*b.x + a.y*b.y;}
 double cross(const vector &a, const vector &b){ return a.x*b.y - a.y*b.x;}
 double area(const point &a,const point &b,const point &c){ return cross(b-a,c-a);}
@@ -42,7 +44,7 @@ bool intersects(const point &P1, const point &P2, const point &P3, const point &
 	double A2 = area(P3, P4, P2);
 	double A3 = area(P1, P2, P3);
 	double A4 = area(P1, P2, P4);
-	if( ((A1 > eps && A2 < eps) || (A1 < eps && A2 > eps)) && ((A3 > eps && A4 < eps) || (A3 < eps && A4 > eps))) return true;
+	if( ((A1 > 0 && A2 < 0) || (A1 < 0 && A2 > 0)) && ((A3 > 0 && A4 < 0) || (A3 < 0 && A4 > 0))) return true;
 	else if(A1 <eps && onSegment(P3, P4, P1)) return true;
 	else if(A2 <eps && onSegment(P3, P4, P2)) return true;
 	else if(A3 <eps && onSegment(P1, P2, P3)) return true;
@@ -54,8 +56,32 @@ bool intersects(const point &P1, const point &P2, const point &P3, const point &
 /*********************************
 *********GEOMETRY FUNCTIONS*******
 ***********************************/
-
+point a[10005];
+int n;
+point s;
+bool sol(){
+		s = point(0,0);
+		for(int i =0 ; i < n ; i++){
+			double x,y; cin >> x >> y;
+			a[i] = point(x,y);
+			s = s+a[i];
+		}
+		s = s/(1.0*n);
+		//cout << s.x << " " <<s.y << endl;
+		sort(a,a+n);
+		set<point> st;
+		for(int i= 0 ; i < n ; i++){
+			if(a[i]==s) continue;
+			if(st.find(s-a[i])!=st.end()) st.erase(s-a[i]);
+			else st.insert(a[i]-s);
+		}
+		return st.empty();
+}
 int main(){
-
+	int t; cin >> t;
+	while(t--){
+		cin >> n;
+		cout << (sol()?"yes":"no") << endl;
+	}
 	return 0;	
 }
