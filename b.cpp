@@ -1,17 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-ll n;
-vector<ll> res;
+
+
 int main(){
-	cin >> n;
-	for(ll k = 1 ; k*k <= n && res.size()<100000; k++){
-		if(n%k!=0) continue;
-		ll x = n/k;
-		res.push_back(x+x*(x-1)*k/2);
+	int a,b,c;
+	cin >> a >> b >> c;
+	for(int x = 0 ;x <= b ; x++){
+		int y = b - x;
+		int z = c - y;
+		if(a==(x+z) && x>=0 && y>=0 && z >=0) {cout << x << " " << y << " " << z << endl;return 0;}
 	}
-	sort(res.begin(),res.end());
-	for(auto v : res) cout << v << " ";
-	cout << endl;
+	cout << "Impossible" << endl;
 	return 0;
 }
+
