@@ -1,26 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<string> v;
-
 int main() {
 	int t; cin >> t;
 	while(t--){
-		int n; cin >> n;
-		string s;
-		int cp= 0,ci= 0;
-		int res = 0,nres= 0;
-		for(int i = 0 ; i < n ; i++){
-			cin >> s;
-			for(int j = 0 ; j < s.size() ; j++){
-				if(s[j]=='0') cp++;
-				else ci++;
+		int n,m,k; cin >> n >> m >> k;
+		vector<int> a(n);
+		for(int &i : a) cin >> i;
+		int ans = -1;
+		k = min(k,m-1);
+		for(int i = -1, j = n-k ; i < k ; i++, j++){
+			int mini = INT_MAX;
+			for(int l = i+1, r = j + k - m ; r < j ; l++, r++){
+				//cout << "i: " << i << " j: " << j << " a[l]: "<<  a[l] << " a[r]: " << a[r] << endl;
+				mini = min(mini,max(a[l],a[r]));
 			}
-			if(s.size()%2==0 && ci%2==0 && cp%2==0) res++;
-			else if(s.size()%2==0 && ((ci%2==0 &&cp%2==1) || (ci%2==1 && cp%2==0))) nres++;
-			if(s.size()%2==1 && ((ci%2==0 &&cp%2==1) || (ci%2==1 && cp%2==0))) res++;
-			else if(s.size()%2==1 && ci%2==1 && cp%2==1) nres++;
+			ans = max(ans,mini);
 		}
-		cout << res + nres/2 << endl;
+		cout << ans << endl;
 	}
 	return 0;
 }
