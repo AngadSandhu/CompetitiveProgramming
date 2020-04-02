@@ -46,7 +46,7 @@ int main(){
 			}
 			cout << i+1 << " " << j+1 << endl;
 		}
-		cout << endl;
+		if(t) cout << endl;
 	}
 	return 0;
 }
