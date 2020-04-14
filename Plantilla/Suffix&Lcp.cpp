@@ -35,14 +35,13 @@ void build_suffix(string s){
         }
         c.swap(cn);
     }
-    for(int i = 1; i < n ; i++) SA[i-1] = p[i];
-    for(int i = 1; i < n; i++) iSA[p[i]] = i-1;
+    for(int i = 1; i < n ; i++) SA[i-1] = p[i], iSA[p[i]] = i-1;
 }
-void build_lcp(string &s){
+void build_lcp(string const& s){
     int n = s.size();
-    for(int i = 0, k; i < n; i++) {
+    for(int i = 0, k = 0; i < n; i++) {
         if(iSA[i] == n - 1){ k = 0; continue; }
-        int j = p[iSA[i] + 1];
+        int j = SA[iSA[i] + 1];
         while(i + k < n && j + k < n && s[i+k] == s[j+k]) k++;
         lcp[iSA[i]] = k;
         if(k) k--;
