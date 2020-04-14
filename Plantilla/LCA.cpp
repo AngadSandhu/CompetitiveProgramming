@@ -1,4 +1,4 @@
-int dmax = 0, st[N][LOGN], dep[N];
+int dmax = 0, st[N][20], dep[N];
 int n,m;
 vector<int> adj[N];
 void dfs(int u,int p,int h){
