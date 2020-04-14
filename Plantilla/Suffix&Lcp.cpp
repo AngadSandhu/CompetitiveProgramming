@@ -1,6 +1,6 @@
 //Suffix O(nlogn) and LCP O(n)
 int SA[N], iSA[N], lcp[N];
-void build_suffix(string &s){
+void build_suffix(string s){
     s += "$";
     int n = s.size();
     const int alphabet = 256;
