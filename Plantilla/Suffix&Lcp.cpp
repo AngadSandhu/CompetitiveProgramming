@@ -1,6 +1,6 @@
 //Suffix O(nlogn) and LCP O(n)
 int SA[N], iSA[N], lcp[N];
-void build_suffix(string const& s){
+void build_suffix(string &s){
     s += "$";
     int n = s.size();
     const int alphabet = 256;
@@ -35,13 +35,13 @@ void build_suffix(string const& s){
         }
         c.swap(cn);
     }
-    for(int i = 1; i < n ; i++) SA[i] = p[i];
-    for (int i = 0; i < n; i++) iSA[p[i]] = i;
+    for(int i = 1; i < n ; i++) SA[i-1] = p[i];
+    for(int i = 1; i < n; i++) iSA[p[i]] = i-1;
 }
-void build_lcp(string const& s){
+void build_lcp(string &s){
     int n = s.size();
     for(int i = 0, k; i < n; i++) {
-        if(rank[i] == n - 1){ k = 0; continue; }
+        if(iSA[i] == n - 1){ k = 0; continue; }
         int j = p[iSA[i] + 1];
         while(i + k < n && j + k < n && s[i+k] == s[j+k]) k++;
         lcp[iSA[i]] = k;
