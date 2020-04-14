@@ -1,6 +1,4 @@
-int dmax = 0;
-int st[N][20];
-int dep[N];
+int dmax = 0, st[N][20], dep[N];
 int n,m;
 vector<int> adj[N];
 void dfs(int u,int p,int h){
@@ -12,7 +10,7 @@ void dfs(int u,int p,int h){
 		dfs(v,u,h+1);
 	}
 }
-void build(){
+void buildlca(){
 	for(int j = 1 ; (1<<j) <= dmax ; j++){
 		for(int i = 0 ; i < n  ; i++){
 			st[i][j] = st[st[i][j-1]][j-1];
