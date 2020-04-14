@@ -5,17 +5,17 @@ void build_suffix(string const& s){
     int n = s.size();
     const int alphabet = 256;
     vector<int> p(n), c(n), cnt(max(alphabet, n), 0);
-    for (int i = 0; i < n; i++) cnt[s[i]]++;
-    for (int i = 1; i < alphabet; i++) cnt[i] += cnt[i-1];
-    for (int i = 0; i < n; i++) p[--cnt[s[i]]] = i;
+    for(int i = 0; i < n; i++) cnt[s[i]]++;
+    for(int i = 1; i < alphabet; i++) cnt[i] += cnt[i-1];
+    for(int i = 0; i < n; i++) p[--cnt[s[i]]] = i;
     c[p[0]] = 0;
     int classes = 1;
-    for (int i = 1; i < n; i++) {
+    for(int i = 1; i < n; i++) {
         if (s[p[i]] != s[p[i-1]]) classes++;
         c[p[i]] = classes - 1;
     }
     vector<int> pn(n), cn(n);
-    for (int h = 0; (1 << h) < n; ++h) {
+    for(int h = 0; (1 << h) < n; ++h) {
         for (int i = 0; i < n; i++) {
             pn[i] = p[i] - (1 << h);
             if (pn[i] < 0)
@@ -24,7 +24,7 @@ void build_suffix(string const& s){
         fill(cnt.begin(), cnt.begin() + classes, 0);
         for(int i = 0; i < n; i++) cnt[c[pn[i]]]++;
         for(int i = 1; i < classes; i++) cnt[i] += cnt[i-1];
-        for (int i = n-1; i >= 0; i--) p[--cnt[c[pn[i]]]] = pn[i];
+        for(int i = n-1; i >= 0; i--) p[--cnt[c[pn[i]]]] = pn[i];
         cn[p[0]] = 0;
         classes = 1;
         for (int i = 1; i < n; i++) {
@@ -40,13 +40,10 @@ void build_suffix(string const& s){
 }
 void build_lcp(string const& s){
     int n = s.size();
-    for (int i = 0, k; i < n; i++) {
-        if (rank[i] == n - 1) {
-            k = 0;
-            continue;
-        }
+    for(int i = 0, k; i < n; i++) {
+        if(rank[i] == n - 1){ k = 0; continue; }
         int j = p[iSA[i] + 1];
-        while (i + k < n && j + k < n && s[i+k] == s[j+k]) k++;
+        while(i + k < n && j + k < n && s[i+k] == s[j+k]) k++;
         lcp[iSA[i]] = k;
         if(k) k--;
     }
