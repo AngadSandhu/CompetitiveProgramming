@@ -1,15 +1,11 @@
-int block;
+const int block = 400;
 struct Query{
 	int l,r,id,u,v;
 	Query(){};
 	Query(int a,int b,int c,int d,int e): l(a), r(b), id(c), u(d), v(e) {};
-	inline pair<int, int> p() const {
-		return make_pair(l/block,((l/block)&1)?-r:+r);
-	}
+	inline pair<int, int> p() const{ return make_pair(l/block,((l/block)&1)?-r:+r); }
 };
-inline bool operator<(const Query &a, const Query &b) {
-	return a.p() < b.p();
-}
+inline bool operator<(const Query &a, const Query &b){ return a.p() < b.p(); }
 Query qry[N];
 void Mos(){
     sort(qry, qry+q); // sort according to query sort
