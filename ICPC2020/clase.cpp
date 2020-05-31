@@ -1,15 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main(){
     //Variables
-    int a = 1231231;   //(-(2^31 - 1), (2^31 -1)) 32 bit. rango = (-2e9, 2e9)
-    a = 01011110111011100
-    long long a;
-    double a;
-    long double;
-
-
-
+    //(tipo de dato) (nombre) = (valor);
+    int edad = 1231231;   //(-(2^31 - 1), (2^31 -1)), 32 bit. rango = (-2e9, 2e9)
+    long long b = 123123; // 
+    // int max 2e9
+    // long long max 2e18
+    double decimal = 0.023251646;
+    long double xd = 0.256641661;
+    
+    //Entrada y salida
+    int a;
+    cin >> a;
 	return 0;
 }
