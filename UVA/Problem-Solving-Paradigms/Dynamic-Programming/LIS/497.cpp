@@ -1,3 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define pb push_back
+#define FIO ios_base::sync_with_stdio(false), cin.tie(NULL);
+#define N 
 int lis(vector<int> const &a)
 {
     int n = a.size();
@@ -45,4 +51,25 @@ vector<int> lisWithConstruction(vector<int> const &v)
     reverse(lisConstruction.begin(), lisConstruction.end());
     for(auto &i : lisConstruction) i = v[i];
     return lisConstruction;
+}
+int main(){
+	int t; cin >> t;
+  cin.ignore();
+  string s;
+  getline(cin,s);
+  while(t--){
+    vector<int> ar;
+    while(getline(cin,s)){
+      if(s.empty()) break;
+      stringstream in(s);
+      int temp;
+      in >> temp;
+      ar.pb(temp);
+    }
+    vector<int> lis = lisWithConstruction(ar);
+    printf("Max hits: %d\n",(int)lis.size());
+    for(auto i : lis) cout << i << endl;
+    if(t) cout << endl;
+  }
+	return 0;
 }
