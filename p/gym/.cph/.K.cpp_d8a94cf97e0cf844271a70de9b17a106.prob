@@ -1,0 +1,1 @@
+{"name":"Local: K","url":"/home/gonzalo/CompetitiveProgramming/p/gym/K.cpp","tests":[{"id":1624135173487,"input":"AABAABB\n","output":"BA\n"},{"id":1624135566651,"input":"CDSDSDCD","output":"DC"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gonzalo/CompetitiveProgramming/p/gym/K.cpp","group":"local","local":true}

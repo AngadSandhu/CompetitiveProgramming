@@ -1,0 +1,1 @@
+{"name":"Local: I","url":"/home/gonzalo/CompetitiveProgramming/p/gym/I.cpp","tests":[{"id":1624138261492,"input":"4 3\n1 2\n2 3\n3 4\n","output":"2\n"},{"id":1624138269957,"input":"6 3\n1 2\n3 4\n5 6\n","output":"-1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gonzalo/CompetitiveProgramming/p/gym/I.cpp","group":"local","local":true}
