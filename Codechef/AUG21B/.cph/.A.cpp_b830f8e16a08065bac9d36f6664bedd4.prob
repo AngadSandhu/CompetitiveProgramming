@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"/home/gonzalo/CompetitiveProgramming/Codechef/AUG21B/A.cpp","tests":[{"id":1628362584720,"input":"3\n10 20 30 0 29 30\n0 0 0 0 0 1\n1 1 1 0 0 0","output":"1\n2\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gonzalo/CompetitiveProgramming/Codechef/AUG21B/A.cpp","group":"local","local":true}

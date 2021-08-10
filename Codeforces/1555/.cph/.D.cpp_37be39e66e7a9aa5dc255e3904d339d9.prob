@@ -1,0 +1,1 @@
+{"name":"Local: D","url":"/home/gonzalo/CompetitiveProgramming/Codeforces/1555/D.cpp","tests":[{"id":1628210886297,"input":"5 4\nbaacb\n1 3\n1 5\n4 5\n2 3\n","output":"1\n2\n0\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gonzalo/CompetitiveProgramming/Codeforces/1555/D.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"/home/gonzalo/CompetitiveProgramming/p/EstructuraDeDatosI/C.cpp","tests":[{"id":1628541599627,"input":"5 2\n1\n2\n3\n5\n4","output":"7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/gonzalo/CompetitiveProgramming/p/EstructuraDeDatosI/C.cpp","group":"local","local":true}

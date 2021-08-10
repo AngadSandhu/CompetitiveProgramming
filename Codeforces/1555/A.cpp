@@ -11,10 +11,17 @@ int main(){
   while(t--){
     ll n; cin >> n;
     ll ans = 0;
-    if(n%6==0) ans = n/6*15;
-    else if(n%8==0) ans = n/8*20;
-    else if(n%10==0) ans = n/10*25;
-    else ans = ((n+5)/6)*15;
+    if(n <= 10){
+      if(n>8) ans += 25;
+      else if(n>6) ans += 20;
+      else ans += 15;
+    }else{
+      ans += 15*((n-5)/6);
+      n -= 6*((n-5)/6);
+      if(n>8) ans += 25;
+      else if(n>6) ans += 20;
+      else ans += 15;
+    }
     cout << ans << endl;
   }
 	return 0;
